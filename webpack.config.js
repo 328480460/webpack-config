@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -74,6 +75,7 @@ module.exports = {
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(), //热加载插件
+        new OpenBrowserPlugin({url: 'http://localhost:8099'}), // 打开浏览器
     ]
 
 }
