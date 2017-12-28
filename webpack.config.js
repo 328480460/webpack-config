@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -26,14 +25,6 @@ module.exports = {
                 exclude: /node_modules/ // 不匹配 node_modules文件夹下的文件
             }, {
                 test: /\.(css|less)$/, // 处理less css 自动添加前缀后 并单独打包
-                // use: ExtractTextWebpackPlugin.extract({     fallback: "style-loader", use: [
-                //     {             loader: 'css-loader'         }, { loader: 'postcss-loader',
-                // // 使用postcss-loader时, 调用autoprefixer插件，自动补全     options: {
-                // plugins: () => [require('autoprefixer')]       }         }, {       loader:
-                // 'less-loader'         }     ] }),
-                use: [
-                    'style-loader', 'css-loader', 'less-loader'
-                ],
                 use: [
                     {
                         loader: 'style-loader'
@@ -82,7 +73,6 @@ module.exports = {
             hash: true // 在生成的文件后面增加一个hash，防止缓存
         }),
         new webpack.NamedModulesPlugin(),
-        new ExtractTextWebpackPlugin("[name].[hash:5].css"), // 分离出来的css样式
         new webpack.HotModuleReplacementPlugin(), //热加载插件
     ]
 

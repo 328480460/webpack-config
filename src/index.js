@@ -14,7 +14,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1 >wdsdwwww22</h1>
+                <h1 >wdsdwwww2xxxxx2</h1>
                 <img src={require('./miku.jpg')}/>
             </div>
         )

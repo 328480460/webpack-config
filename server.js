@@ -4,7 +4,6 @@ var WebpackDevServer = require('webpack-dev-server');
 
 config.entry.app.unshift("webpack/hot/dev-server"); // 启用热替换     
 config.entry.app.unshift("webpack-dev-server/client?http://localhost:8099/"); // 热更新监听此地址  
-console.log(config.entry.app)   
 
 var server = new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath, // 本地服务器所加载的页面所在的目录
