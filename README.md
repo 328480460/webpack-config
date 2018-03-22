@@ -18,3 +18,9 @@
 本项目并未做代码分离，编译时间优化等操作，完全以能用作为主
 
 使用时，请参照自己的项目的结构和编译打包需求进行修改
+
+更新：
+1.webpack更新到了4.2版本；
+2.html-webpack-plugin 插件尚不支持webpack4.0特性，需要使用官方维护的"webpack-contrib/html-webpack-plugin"来暂时做代替；
+3.需要将extract-text-webpack-plugin升级到4.0beta版本，以支持webpack4.0；
+4.在开发模式加入了source-map；
