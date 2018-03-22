@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
+    devtool: "source-map",
     entry: {
         app: ['./src/index.js']
     },
@@ -20,7 +21,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader", // 编译es6 jsx
                     options: { //babel的配置参数，可以写在.babelrc文件里也可以写在这里
-                        presets: ['env', 'react']
+                        presets: ['env', 'react', "stage-0"]
                     }
                 },
                 exclude: /node_modules/ // 不匹配 node_modules文件夹下的文件
@@ -76,6 +77,7 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(), //热加载插件
         new OpenBrowserPlugin({url: 'http://localhost:8099'}), // 打开浏览器
-    ]
+    ],
+    mode: 'development'
 
 }
